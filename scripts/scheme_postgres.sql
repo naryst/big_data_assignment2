@@ -92,7 +92,7 @@ CREATE TABLE messages (
     complained_at TIMESTAMP,
     is_blocked BOOLEAN,
     blocked_at TIMESTAMP,
-    is_purchased BOOLEAN,
+    is_purchasced BOOLEAN,
     purchased_at TIMESTAMP,
     created_at TIMESTAMP NOT NULL,
     updated_at TIMESTAMP NOT NULL,
