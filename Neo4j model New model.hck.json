@@ -1,0 +1,1477 @@
+{
+  "modelName": "New model",
+  "collections": [
+    {
+      "GUID": "5e5553db-1921-484e-8bd0-0984b083ca63",
+      "collectionName": "Client",
+      "type": "object",
+      "properties": [
+        {
+          "code": "",
+          "name": "first_purchase_date",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "temporal",
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "mode": "date",
+          "GUID": "7a6e828e-7a47-4b10-8f04-8251c30c0515",
+          "required": true,
+          "sample": "2021-12-16",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "user_id",
+          "isActivated": true,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "primaryKey": false,
+          "unique": true,
+          "childType": "number",
+          "type": "numeric",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "7beeebb0-6848-48d7-a067-17e69eac59cb",
+          "required": true,
+          "sample": 565119587,
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "user_device_id",
+          "isActivated": true,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "number",
+          "type": "numeric",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "mode": "integer",
+          "sample": 9,
+          "GUID": "fb644c37-54e0-4eeb-b0d0-40101715f740",
+          "required": true,
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "client_id",
+          "isActivated": true,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "primaryKey": false,
+          "unique": true,
+          "childType": "number",
+          "type": "numeric",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "74e6264c-8c6f-4fef-9477-0c29ae92ddaf",
+          "required": true,
+          "sample": 1515915625651196000,
+          "error": {}
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "GUID": "76ceb427-08ec-42d0-8eaf-cec1a1857d7c",
+        "properties": []
+      },
+      "isActivated": true,
+      "additionalProperties": true,
+      "collectionUsers": [],
+      "bucketId": "bce5a181-ad8d-429f-aac5-ee8ae892a47e",
+      "code": "",
+      "constraint": [],
+      "index": [
+        {
+          "isActivated": true,
+          "GUID": "687f219e-e3a3-4615-ae73-88bcfb8eb0e5",
+          "name": "client_id",
+          "key": [
+            {
+              "keyId": "74e6264c-8c6f-4fef-9477-0c29ae92ddaf"
+            }
+          ],
+          "state": "ONLINE",
+          "type": "RANGE",
+          "provider": "range-1.0"
+        },
+        {
+          "isActivated": true,
+          "GUID": "60478a3e-5e4c-481a-ab2d-6fc30f803761",
+          "name": "user_id",
+          "key": [
+            {
+              "keyId": "7beeebb0-6848-48d7-a067-17e69eac59cb"
+            }
+          ],
+          "state": "ONLINE",
+          "type": "RANGE",
+          "provider": "range-1.0"
+        }
+      ],
+      "hackoladeMeta": {
+        "validationErrors": {}
+      }
+    },
+    {
+      "GUID": "3495f2f5-13c0-4c15-8377-5f9152550310",
+      "collectionName": "Message",
+      "type": "object",
+      "properties": [
+        {
+          "code": "",
+          "name": "date",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "temporal",
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "mode": "date",
+          "GUID": "1778cbcb-2cb5-45a4-bed5-67b0d0a9c3c9",
+          "required": true,
+          "sample": "2021-04-30",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "opened_last_time_at",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "temporal",
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "mode": "datetime",
+          "GUID": "f4c10ae4-0f12-44e7-afe0-4471938b7226",
+          "required": false,
+          "sample": "2021-04-30T14:32:05Z",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "channel",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "6b492c11-8e8b-49d7-94df-b9e36d84deae",
+          "required": true,
+          "sample": "email",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "created_at",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "temporal",
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "mode": "datetime",
+          "GUID": "beeca954-a2f7-4986-adeb-1c6cf0634e6d",
+          "required": true,
+          "sample": "2023-04-27T19:07:13.000460000Z",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "message_type",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "33685372-935f-41f6-bd6f-d77347f1acc5",
+          "required": true,
+          "sample": "trigger",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "message_id",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": true,
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "89f3051e-5472-4349-ab0e-5f84fe922380",
+          "required": true,
+          "sample": "ba995fb1-fdcb-4937-b283-123bf3c7fb73",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "sent_at",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "temporal",
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "mode": "datetime",
+          "GUID": "4600795d-d3e8-4145-820b-a0b46040479c",
+          "required": true,
+          "sample": "2021-04-30T18:47:20Z",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "updated_at",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "temporal",
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "mode": "datetime",
+          "GUID": "65655239-283e-47c1-b51b-93b76d1f48dc",
+          "required": true,
+          "sample": "2023-04-27T19:07:13.001075000Z",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "stream",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "a3035043-c6b8-408e-be95-630458d12988",
+          "required": true,
+          "sample": "desktop",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "user_id",
+          "isActivated": true,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "number",
+          "type": "numeric",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "mode": "integer",
+          "sample": 563657030,
+          "GUID": "162e0e65-87a4-4d7b-aac1-614152234322",
+          "required": true,
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "user_device_id",
+          "isActivated": true,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "number",
+          "type": "numeric",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "mode": "integer",
+          "sample": 9,
+          "GUID": "3f72c9c9-a26d-4722-96c5-ae8f27aeb9f5",
+          "required": true,
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "email_provider",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "303e572c-5baf-408e-9dcc-e8cec1348791",
+          "required": true,
+          "sample": "yandex.ru",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "opened_first_time_at",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "temporal",
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "mode": "datetime",
+          "GUID": "8a8ac5b1-753a-4b37-bee1-4c6656231296",
+          "required": false,
+          "sample": "2021-04-30T14:32:05Z",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "id",
+          "isActivated": true,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "number",
+          "type": "numeric",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "mode": "integer",
+          "sample": 18061865,
+          "GUID": "69dce740-4f42-4c82-a305-e883efeac3ac",
+          "required": true,
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "clicked_first_time_at",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "temporal",
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "mode": "datetime",
+          "GUID": "a087f92c-3c96-4ef1-b0c5-f3e41d04e7fb",
+          "required": false,
+          "sample": "2021-04-30T14:32:24Z",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "clicked_last_time_at",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "temporal",
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "mode": "datetime",
+          "GUID": "af3566aa-0d73-4fe7-8d88-83c263f1fd5c",
+          "required": false,
+          "sample": "2021-04-30T14:32:24Z",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "purchased_at",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "temporal",
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "mode": "datetime",
+          "GUID": "e990f9b2-f84b-4eca-a422-270b3171f42d",
+          "required": false,
+          "sample": "2021-04-30T14:41:32Z",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "platform",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "b545cc89-325b-4526-9b89-5a6d4bc3db55",
+          "required": false,
+          "sample": "smartphone",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "complained_at",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "temporal",
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "mode": "datetime",
+          "GUID": "dba92b7b-dc72-448d-beb3-70dd85737764",
+          "required": false,
+          "sample": "2021-06-02T10:40:10Z",
+          "error": {}
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "GUID": "b10ec9dd-6486-4ee2-8686-45a1225758c1",
+        "properties": []
+      },
+      "isActivated": true,
+      "additionalProperties": true,
+      "collectionUsers": [],
+      "bucketId": "bce5a181-ad8d-429f-aac5-ee8ae892a47e",
+      "code": "",
+      "constraint": [],
+      "index": [
+        {
+          "isActivated": true,
+          "GUID": "a77a3f20-a71b-432d-ae1d-a6003d8aa833",
+          "name": "message_id",
+          "key": [
+            {
+              "keyId": "89f3051e-5472-4349-ab0e-5f84fe922380"
+            }
+          ],
+          "state": "ONLINE",
+          "type": "RANGE",
+          "provider": "range-1.0"
+        },
+        {
+          "isActivated": true,
+          "GUID": "3de2646d-7f49-4d02-8795-7d24c2c6990e",
+          "name": "message_purchased",
+          "key": [],
+          "state": "ONLINE",
+          "type": "RANGE",
+          "provider": "range-1.0"
+        },
+        {
+          "isActivated": true,
+          "GUID": "0e7cd88a-e670-425f-8428-da59e3f41f9f",
+          "name": "message_sent",
+          "key": [
+            {
+              "keyId": "4600795d-d3e8-4145-820b-a0b46040479c"
+            }
+          ],
+          "state": "ONLINE",
+          "type": "RANGE",
+          "provider": "range-1.0"
+        }
+      ],
+      "hackoladeMeta": {
+        "validationErrors": {}
+      }
+    },
+    {
+      "GUID": "d7d1be7c-2071-49a1-90ae-169a46808b33",
+      "collectionName": "Event",
+      "type": "object",
+      "properties": [
+        {
+          "code": "",
+          "name": "user_session",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "2ab4d2b5-c6b5-4a65-ac22-84a2efee4971",
+          "required": true,
+          "sample": "7f680b61-f6a5-4e1f-abf5-3748c090fa70",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "event_type",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "bfa4b538-9475-4999-a273-bf29dca03325",
+          "required": true,
+          "sample": "view",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "event_time",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "temporal",
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "mode": "datetime",
+          "GUID": "f14cc2dd-fd25-468b-9352-ba777035c370",
+          "required": true,
+          "sample": "2019-10-02T18:15:59Z",
+          "error": {}
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "GUID": "ab209219-f774-4fc5-ab51-d0421c3fabfb",
+        "properties": []
+      },
+      "isActivated": true,
+      "additionalProperties": true,
+      "collectionUsers": [],
+      "bucketId": "bce5a181-ad8d-429f-aac5-ee8ae892a47e",
+      "code": "",
+      "constraint": [],
+      "index": [
+        {
+          "isActivated": true,
+          "GUID": "b6b5a264-b960-42c6-a619-621089f5be7f",
+          "name": "event_time",
+          "key": [
+            {
+              "keyId": "f14cc2dd-fd25-468b-9352-ba777035c370"
+            }
+          ],
+          "state": "ONLINE",
+          "type": "RANGE",
+          "provider": "range-1.0"
+        },
+        {
+          "isActivated": true,
+          "GUID": "4ca6e153-4641-4040-b0d5-4a87764b7833",
+          "name": "event_type",
+          "key": [
+            {
+              "keyId": "bfa4b538-9475-4999-a273-bf29dca03325"
+            }
+          ],
+          "state": "ONLINE",
+          "type": "RANGE",
+          "provider": "range-1.0"
+        }
+      ],
+      "hackoladeMeta": {
+        "validationErrors": {}
+      }
+    },
+    {
+      "GUID": "675164ba-82b2-48c4-a21c-2339bc346a88",
+      "collectionName": "Campaign",
+      "type": "object",
+      "properties": [
+        {
+          "code": "",
+          "name": "warmup_mode",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "boolean",
+          "type": "boolean",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "6ac9d863-f995-4997-9618-552d74ba8fde",
+          "required": true,
+          "sample": false,
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "finished_at",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "temporal",
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "mode": "datetime",
+          "GUID": "3ae57ace-8550-4069-b59b-a8059c3c04fa",
+          "required": false,
+          "sample": "2022-09-21T15:30:14Z",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "subject_with_deadline",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "boolean",
+          "type": "boolean",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "38391d7a-8550-42dc-b145-2d1d1e41c2a3",
+          "required": true,
+          "sample": false,
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "subject_with_personalization",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "boolean",
+          "type": "boolean",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "23303d61-c532-4b8c-af3f-18c3a334faca",
+          "required": true,
+          "sample": false,
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "total_count",
+          "isActivated": true,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "number",
+          "type": "numeric",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "mode": "integer",
+          "sample": 5371769,
+          "GUID": "6dc159bc-f38c-48aa-adfc-1e7830acf2da",
+          "required": false,
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "campaign_type",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "88c11e85-b115-4a18-b81e-05e607311a13",
+          "required": true,
+          "sample": "bulk",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "channel",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "9e5a5004-ea96-4ce2-8a62-4809aa584bcd",
+          "required": true,
+          "sample": "mobile_push",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "subject_with_emoji",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "boolean",
+          "type": "boolean",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "e1d94140-e277-4e1c-96a4-620fa954a1b1",
+          "required": true,
+          "sample": true,
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "subject_length",
+          "isActivated": true,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "number",
+          "type": "numeric",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "mode": "integer",
+          "sample": 185,
+          "GUID": "6d36933d-f1c3-49a0-a5e9-2fb79575bb99",
+          "required": true,
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "subject_with_discount",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "boolean",
+          "type": "boolean",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "84cb9e4c-22ca-49e2-baf7-046df26ec13b",
+          "required": true,
+          "sample": false,
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "started_at",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "temporal",
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "mode": "datetime",
+          "GUID": "a3713be3-89e1-4185-9c4e-6fad4d658c00",
+          "required": false,
+          "sample": "2022-09-21T15:30:08.078755000Z",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "topic",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "c3d3b419-0293-4800-9c64-4d2a87fae67a",
+          "required": false,
+          "sample": "leave review",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "id",
+          "isActivated": true,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "primaryKey": false,
+          "unique": true,
+          "childType": "number",
+          "type": "numeric",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "4a6672bc-f87b-4557-bc33-03758f86c069",
+          "required": true,
+          "sample": 6685,
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "subject_with_bonuses",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "boolean",
+          "type": "boolean",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "a7e1f3f3-6a0d-47e5-b7b2-230ca19142a8",
+          "required": true,
+          "sample": true,
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "subject_with_saleout",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "boolean",
+          "type": "boolean",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "c6c363f1-9f07-423f-99ba-2971c4f9e06c",
+          "required": true,
+          "sample": false,
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "hour_limit",
+          "isActivated": true,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "number",
+          "type": "numeric",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "mode": "integer",
+          "sample": 1000000,
+          "GUID": "e9d6a962-27be-4e79-85b5-a28b05e79e94",
+          "required": false,
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "ab_test",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "boolean",
+          "type": "boolean",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "5a44a8be-42f7-4c69-a8cc-de9d3cff18a4",
+          "required": false,
+          "sample": true,
+          "error": {}
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "GUID": "54e559f2-0be4-4d14-a189-33b16dc5d5f6",
+        "properties": []
+      },
+      "isActivated": true,
+      "additionalProperties": true,
+      "collectionUsers": [],
+      "bucketId": "bce5a181-ad8d-429f-aac5-ee8ae892a47e",
+      "code": "",
+      "constraint": [],
+      "index": [
+        {
+          "isActivated": true,
+          "GUID": "391fbbf9-4cc8-40c9-8d2b-213a7e5bda08",
+          "name": "campaign_id",
+          "key": [
+            {
+              "keyId": "4a6672bc-f87b-4557-bc33-03758f86c069"
+            }
+          ],
+          "state": "ONLINE",
+          "type": "RANGE",
+          "provider": "range-1.0"
+        },
+        {
+          "isActivated": true,
+          "GUID": "44bf62ac-6166-4898-a92f-fd28637246c6",
+          "name": "campaign_type",
+          "key": [
+            {
+              "keyId": "88c11e85-b115-4a18-b81e-05e607311a13"
+            }
+          ],
+          "state": "ONLINE",
+          "type": "RANGE",
+          "provider": "range-1.0"
+        }
+      ],
+      "hackoladeMeta": {
+        "validationErrors": {}
+      }
+    },
+    {
+      "GUID": "3e653644-ef71-463f-980d-a4c7c1e6c5fa",
+      "collectionName": "Product",
+      "type": "object",
+      "properties": [
+        {
+          "code": "",
+          "name": "category_id",
+          "isActivated": true,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "number",
+          "type": "numeric",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "mode": "integer",
+          "sample": 2139095925,
+          "GUID": "80d33b35-a6e8-4fbf-bde9-1b743afd7d32",
+          "required": true,
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "category_code",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "26c85e6f-f4ee-4f03-a0ad-38cc6c50399c",
+          "required": false,
+          "sample": "appliances.environment.vacuum",
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "price",
+          "isActivated": true,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "primaryKey": false,
+          "unique": false,
+          "childType": "number",
+          "type": "numeric",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "mode": "float",
+          "sample": 295.76,
+          "GUID": "167ccee5-271c-4bcd-8fa1-a602d60ced0b",
+          "required": true,
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "product_id",
+          "isActivated": true,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "primaryKey": false,
+          "unique": true,
+          "childType": "number",
+          "type": "numeric",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "9dedf79b-c22f-4841-8b9b-26ae89827c16",
+          "required": true,
+          "sample": 49800014,
+          "error": {}
+        },
+        {
+          "code": "",
+          "name": "brand",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "type": "string",
+          "compositeKey": [
+            "compositeNodeKey"
+          ],
+          "compositeNodeKey": false,
+          "GUID": "7f1db16d-2099-4da5-bfe0-1a430ccc788c",
+          "required": false,
+          "sample": "samsung",
+          "error": {}
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "GUID": "129e142c-17b8-4279-a58c-edc7f892385a",
+        "properties": []
+      },
+      "isActivated": true,
+      "additionalProperties": true,
+      "collectionUsers": [],
+      "bucketId": "bce5a181-ad8d-429f-aac5-ee8ae892a47e",
+      "code": "",
+      "constraint": [],
+      "index": [
+        {
+          "isActivated": true,
+          "GUID": "f270c43e-9ffb-4859-8671-1fee6dae0bfe",
+          "name": "product_id",
+          "key": [
+            {
+              "keyId": "9dedf79b-c22f-4841-8b9b-26ae89827c16"
+            }
+          ],
+          "state": "ONLINE",
+          "type": "RANGE",
+          "provider": "range-1.0"
+        }
+      ],
+      "hackoladeMeta": {
+        "validationErrors": {}
+      }
+    }
+  ],
+  "buckets": [
+    {
+      "name": "ecommerce",
+      "type": "bucket",
+      "collectionIds": [
+        "5e5553db-1921-484e-8bd0-0984b083ca63",
+        "3495f2f5-13c0-4c15-8377-5f9152550310",
+        "d7d1be7c-2071-49a1-90ae-169a46808b33",
+        "675164ba-82b2-48c4-a21c-2339bc346a88",
+        "3e653644-ef71-463f-980d-a4c7c1e6c5fa"
+      ],
+      "backgroundColor": {
+        "r": 187,
+        "g": 187,
+        "b": 187,
+        "a": 1
+      },
+      "show": true,
+      "isActivated": true,
+      "indexes": [],
+      "GUID": "bce5a181-ad8d-429f-aac5-ee8ae892a47e",
+      "hackoladeMeta": {},
+      "code": "",
+      "addFieldsToBucket": true,
+      "isPlugin": true
+    }
+  ],
+  "views": [],
+  "relationships": [
+    {
+      "name": "RECEIVED",
+      "parentField": [],
+      "parentCardinality": "1",
+      "childField": [],
+      "isActivated": true,
+      "childCardinality": "1",
+      "GUID": "3487eb77-f43f-49ca-80fc-dfd325b6a994",
+      "level": "entity",
+      "parentCollection": "5e5553db-1921-484e-8bd0-0984b083ca63",
+      "childCollection": "3495f2f5-13c0-4c15-8377-5f9152550310",
+      "bucketId": "bce5a181-ad8d-429f-aac5-ee8ae892a47e",
+      "lineSize": 2,
+      "properties": []
+    },
+    {
+      "name": "FRIENDS_WITH",
+      "parentField": [],
+      "parentCardinality": "1",
+      "childField": [],
+      "isActivated": true,
+      "childCardinality": "1",
+      "GUID": "0102826f-caf1-45e8-8a8f-896f3a2cdef7",
+      "level": "entity",
+      "parentCollection": "5e5553db-1921-484e-8bd0-0984b083ca63",
+      "childCollection": "5e5553db-1921-484e-8bd0-0984b083ca63",
+      "bucketId": "bce5a181-ad8d-429f-aac5-ee8ae892a47e",
+      "lineSize": 2,
+      "properties": []
+    },
+    {
+      "name": "INCLUDES",
+      "parentField": [],
+      "parentCardinality": "1",
+      "childField": [],
+      "isActivated": true,
+      "childCardinality": "1",
+      "GUID": "aa2cbc32-efb9-4547-b127-dee5f3730179",
+      "level": "entity",
+      "parentCollection": "675164ba-82b2-48c4-a21c-2339bc346a88",
+      "childCollection": "3495f2f5-13c0-4c15-8377-5f9152550310",
+      "bucketId": "bce5a181-ad8d-429f-aac5-ee8ae892a47e",
+      "lineSize": 2,
+      "properties": []
+    },
+    {
+      "name": "GENERATED",
+      "parentField": [],
+      "parentCardinality": "1",
+      "childField": [],
+      "isActivated": true,
+      "childCardinality": "1",
+      "GUID": "2e22fdea-205a-4a4b-8993-0afaf4151e7c",
+      "level": "entity",
+      "parentCollection": "5e5553db-1921-484e-8bd0-0984b083ca63",
+      "childCollection": "d7d1be7c-2071-49a1-90ae-169a46808b33",
+      "bucketId": "bce5a181-ad8d-429f-aac5-ee8ae892a47e",
+      "lineSize": 2,
+      "properties": []
+    },
+    {
+      "name": "INVOLVES",
+      "parentField": [],
+      "parentCardinality": "1",
+      "childField": [],
+      "isActivated": true,
+      "childCardinality": "1",
+      "GUID": "9486c41a-2213-4e6d-9365-0c5dcec5625e",
+      "level": "entity",
+      "parentCollection": "d7d1be7c-2071-49a1-90ae-169a46808b33",
+      "childCollection": "3e653644-ef71-463f-980d-a4c7c1e6c5fa",
+      "bucketId": "bce5a181-ad8d-429f-aac5-ee8ae892a47e",
+      "lineSize": 2,
+      "properties": []
+    }
+  ],
+  "users": [],
+  "diagramViews": [],
+  "idToNameHashTable": {
+    "bce5a181-ad8d-429f-aac5-ee8ae892a47e": "ecommerce",
+    "7a6e828e-7a47-4b10-8f04-8251c30c0515": "first_purchase_date",
+    "7beeebb0-6848-48d7-a067-17e69eac59cb": "user_id",
+    "fb644c37-54e0-4eeb-b0d0-40101715f740": "user_device_id",
+    "74e6264c-8c6f-4fef-9477-0c29ae92ddaf": "client_id",
+    "5e5553db-1921-484e-8bd0-0984b083ca63": "Client",
+    "1778cbcb-2cb5-45a4-bed5-67b0d0a9c3c9": "date",
+    "f4c10ae4-0f12-44e7-afe0-4471938b7226": "opened_last_time_at",
+    "6b492c11-8e8b-49d7-94df-b9e36d84deae": "channel",
+    "beeca954-a2f7-4986-adeb-1c6cf0634e6d": "created_at",
+    "33685372-935f-41f6-bd6f-d77347f1acc5": "message_type",
+    "89f3051e-5472-4349-ab0e-5f84fe922380": "message_id",
+    "4600795d-d3e8-4145-820b-a0b46040479c": "sent_at",
+    "65655239-283e-47c1-b51b-93b76d1f48dc": "updated_at",
+    "a3035043-c6b8-408e-be95-630458d12988": "stream",
+    "162e0e65-87a4-4d7b-aac1-614152234322": "user_id",
+    "3f72c9c9-a26d-4722-96c5-ae8f27aeb9f5": "user_device_id",
+    "303e572c-5baf-408e-9dcc-e8cec1348791": "email_provider",
+    "8a8ac5b1-753a-4b37-bee1-4c6656231296": "opened_first_time_at",
+    "69dce740-4f42-4c82-a305-e883efeac3ac": "id",
+    "a087f92c-3c96-4ef1-b0c5-f3e41d04e7fb": "clicked_first_time_at",
+    "af3566aa-0d73-4fe7-8d88-83c263f1fd5c": "clicked_last_time_at",
+    "e990f9b2-f84b-4eca-a422-270b3171f42d": "purchased_at",
+    "b545cc89-325b-4526-9b89-5a6d4bc3db55": "platform",
+    "dba92b7b-dc72-448d-beb3-70dd85737764": "complained_at",
+    "3495f2f5-13c0-4c15-8377-5f9152550310": "Message",
+    "2ab4d2b5-c6b5-4a65-ac22-84a2efee4971": "user_session",
+    "bfa4b538-9475-4999-a273-bf29dca03325": "event_type",
+    "f14cc2dd-fd25-468b-9352-ba777035c370": "event_time",
+    "d7d1be7c-2071-49a1-90ae-169a46808b33": "Event",
+    "6ac9d863-f995-4997-9618-552d74ba8fde": "warmup_mode",
+    "3ae57ace-8550-4069-b59b-a8059c3c04fa": "finished_at",
+    "38391d7a-8550-42dc-b145-2d1d1e41c2a3": "subject_with_deadline",
+    "23303d61-c532-4b8c-af3f-18c3a334faca": "subject_with_personalization",
+    "6dc159bc-f38c-48aa-adfc-1e7830acf2da": "total_count",
+    "88c11e85-b115-4a18-b81e-05e607311a13": "campaign_type",
+    "9e5a5004-ea96-4ce2-8a62-4809aa584bcd": "channel",
+    "e1d94140-e277-4e1c-96a4-620fa954a1b1": "subject_with_emoji",
+    "6d36933d-f1c3-49a0-a5e9-2fb79575bb99": "subject_length",
+    "84cb9e4c-22ca-49e2-baf7-046df26ec13b": "subject_with_discount",
+    "a3713be3-89e1-4185-9c4e-6fad4d658c00": "started_at",
+    "c3d3b419-0293-4800-9c64-4d2a87fae67a": "topic",
+    "4a6672bc-f87b-4557-bc33-03758f86c069": "id",
+    "a7e1f3f3-6a0d-47e5-b7b2-230ca19142a8": "subject_with_bonuses",
+    "c6c363f1-9f07-423f-99ba-2971c4f9e06c": "subject_with_saleout",
+    "e9d6a962-27be-4e79-85b5-a28b05e79e94": "hour_limit",
+    "5a44a8be-42f7-4c69-a8cc-de9d3cff18a4": "ab_test",
+    "675164ba-82b2-48c4-a21c-2339bc346a88": "Campaign",
+    "80d33b35-a6e8-4fbf-bde9-1b743afd7d32": "category_id",
+    "26c85e6f-f4ee-4f03-a0ad-38cc6c50399c": "category_code",
+    "167ccee5-271c-4bcd-8fa1-a602d60ced0b": "price",
+    "9dedf79b-c22f-4841-8b9b-26ae89827c16": "product_id",
+    "7f1db16d-2099-4da5-bfe0-1a430ccc788c": "brand",
+    "3e653644-ef71-463f-980d-a4c7c1e6c5fa": "Product",
+    "3487eb77-f43f-49ca-80fc-dfd325b6a994": "RECEIVED",
+    "0102826f-caf1-45e8-8a8f-896f3a2cdef7": "FRIENDS_WITH",
+    "aa2cbc32-efb9-4547-b127-dee5f3730179": "INCLUDES",
+    "2e22fdea-205a-4a4b-8993-0afaf4151e7c": "GENERATED",
+    "9486c41a-2213-4e6d-9365-0c5dcec5625e": "INVOLVES"
+  },
+  "definitions": {
+    "type": "definitions",
+    "properties": [],
+    "GUID": "8b43c09f-a94c-4b4c-a1d5-7e6ed61ddcb2"
+  },
+  "polyglotDefinitions": {
+    "type": "polyglotDefinitions",
+    "properties": [],
+    "GUID": "cf6451a6-47f2-49e3-9810-5af72942dd18"
+  },
+  "externalDefinitions": {
+    "type": "externalDefinitions",
+    "properties": [],
+    "GUID": "41f9970a-0483-489b-8ae9-2bf510b8d053"
+  },
+  "sources": [],
+  "decorativeSymbols": [],
+  "dbVersion": "5.x",
+  "dbVendor": "Neo4j",
+  "appTarget": "NEO4J",
+  "creationTS": "2025-03-04T16:11:12.730Z",
+  "GUID": "32feac9e-d686-43d9-b2f3-19fc2dfdad38",
+  "isLineageEnabled": false,
+  "lastModifTS": "2025-03-04T18:55:50.772Z",
+  "persistenceSchemaVersion": "8",
+  "isCreatedByPlugin": true,
+  "pluginInformation": {
+    "pluginName": "Neo4j",
+    "pluginVersion": "0.2.8",
+    "pluginEngineVersion": "1.0.0"
+  },
+  "applicationInformation": {
+    "version": "8.0.3"
+  },
+  "settings": {
+    "centralPane": {
+      "dbLevel": {
+        "erd": [
+          {
+            "GUID": "5e5553db-1921-484e-8bd0-0984b083ca63",
+            "x": 1050,
+            "y": 1220,
+            "width": 250,
+            "height": 87,
+            "color": {
+              "hex": "#2196F3"
+            }
+          },
+          {
+            "GUID": "3495f2f5-13c0-4c15-8377-5f9152550310",
+            "x": 1050,
+            "y": 1547,
+            "width": 250,
+            "height": 297,
+            "color": {
+              "hex": "#2196F3"
+            }
+          },
+          {
+            "GUID": "d7d1be7c-2071-49a1-90ae-169a46808b33",
+            "x": 1385,
+            "y": 1050,
+            "width": 250,
+            "height": 75,
+            "color": {
+              "hex": "#2196F3"
+            }
+          },
+          {
+            "GUID": "675164ba-82b2-48c4-a21c-2339bc346a88",
+            "x": 1720,
+            "y": 1315.5,
+            "width": 250,
+            "height": 269,
+            "color": {
+              "hex": "#2196F3"
+            }
+          },
+          {
+            "GUID": "3e653644-ef71-463f-980d-a4c7c1e6c5fa",
+            "x": 2055,
+            "y": 1050,
+            "width": 250,
+            "height": 101,
+            "color": {
+              "hex": "#2196F3"
+            }
+          },
+          {
+            "GUID": "3487eb77-f43f-49ca-80fc-dfd325b6a994",
+            "x": 1055,
+            "y": 1377,
+            "width": 240,
+            "height": 100,
+            "color": {}
+          },
+          {
+            "GUID": "0102826f-caf1-45e8-8a8f-896f3a2cdef7",
+            "x": 1055,
+            "y": 1050,
+            "width": 240,
+            "height": 100,
+            "color": {}
+          },
+          {
+            "GUID": "aa2cbc32-efb9-4547-b127-dee5f3730179",
+            "x": 1390,
+            "y": 1435,
+            "width": 240,
+            "height": 100,
+            "color": {}
+          },
+          {
+            "GUID": "2e22fdea-205a-4a4b-8993-0afaf4151e7c",
+            "x": 1390,
+            "y": 1195,
+            "width": 240,
+            "height": 100,
+            "color": {}
+          },
+          {
+            "GUID": "9486c41a-2213-4e6d-9365-0c5dcec5625e",
+            "x": 1725,
+            "y": 1050,
+            "width": 240,
+            "height": 100,
+            "color": {}
+          }
+        ],
+        "erdDefinitions": {
+          "erd": [],
+          "rootPath": [],
+          "entities": [],
+          "decorativeSymbols": []
+        },
+        "buckets": [
+          {
+            "x": 1010,
+            "y": 1010,
+            "GUID": "bce5a181-ad8d-429f-aac5-ee8ae892a47e"
+          }
+        ],
+        "collapsedNodes": [],
+        "activeRelationship": "",
+        "activeRelationshipFields": {
+          "childField": [],
+          "parentField": []
+        },
+        "selectedCollections": [],
+        "displayColorPicker": false,
+        "graphView": {
+          "erd": [
+            {
+              "GUID": "5e5553db-1921-484e-8bd0-0984b083ca63",
+              "size": 100,
+              "x": 1376.2927345545165,
+              "y": 1308.9176236001797
+            },
+            {
+              "GUID": "3495f2f5-13c0-4c15-8377-5f9152550310",
+              "size": 100,
+              "x": 1053.7791365373835,
+              "y": 1071.614848706318
+            },
+            {
+              "GUID": "d7d1be7c-2071-49a1-90ae-169a46808b33",
+              "size": 100,
+              "x": 978.9583792661641,
+              "y": 1358.4978394970344
+            },
+            {
+              "GUID": "675164ba-82b2-48c4-a21c-2339bc346a88",
+              "size": 100,
+              "x": 1452.9332270519658,
+              "y": 1042.5045325417013
+            },
+            {
+              "GUID": "3e653644-ef71-463f-980d-a4c7c1e6c5fa",
+              "size": 100,
+              "x": 1315.0967757795186,
+              "y": 1575.7118383596487
+            }
+          ],
+          "buckets": [
+            {
+              "x": 937.6317438336587,
+              "y": 996.742755594372,
+              "GUID": "bce5a181-ad8d-429f-aac5-ee8ae892a47e"
+            }
+          ],
+          "decorativeSymbols": [],
+          "forceLayout": true,
+          "defaultLinkLength": 400
+        },
+        "diagramViews": [],
+        "decorativeSymbols": [],
+        "nestedCollectionsLayout": "horizontal",
+        "options": [],
+        "relationshipUpdateDisabled": false,
+        "displayOptions": {
+          "hideErdRelationshipsNames": false
+        }
+      },
+      "collectionLevel": {},
+      "changed": false
+    },
+    "dtDiagram": {
+      "collapsedNodes": [],
+      "shouldDistributeCollections": false
+    }
+  }
+}
