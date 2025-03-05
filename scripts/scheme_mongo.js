@@ -1,20 +1,19 @@
 use("assignment2");
 
-["client_first_purchase_date", "campaigns", "events", "messages", "friends"].forEach(collection => {
+["client_first_purchase", "campaigns", "events", "messages", "friends"].forEach(collection => {
     db[collection].drop();
 });
 
-db.createCollection("client_first_purchase_date", {
+db.createCollection("client_first_purchase", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
-      required: ["_id", "user_id", "user_device_id", "first_purchase_date"],
+      required: ["client_id", "first_purchase_date", "user_id", "user_device_id"],
       properties: {
-        _id: { bsonType: "string" },
         client_id: { bsonType: "string" },
+        first_purchase_date: { bsonType: "date" },
         user_id: { bsonType: "long" },
-        user_device_id: { bsonType: "long" },
-        first_purchase_date: { bsonType: "date" }
+        user_device_id: { bsonType: "long" }
       }
     }
   }
@@ -24,9 +23,9 @@ db.createCollection("campaigns", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
-      required: ["_id", "campaign_type", "channel"],
+      required: ["id", "campaign_type", "channel"],
       properties: {
-        _id: { bsonType: "long" },
+        id: { bsonType: "long" },
         campaign_type: { bsonType: "string" },
         channel: { bsonType: "string" },
         topic: { bsonType: "string" },
@@ -36,18 +35,13 @@ db.createCollection("campaigns", {
         ab_test: { bsonType: "bool" },
         warmup_mode: { bsonType: "bool" },
         hour_limit: { bsonType: "double" },
-        subject: {
-          bsonType: "object",
-          properties: {
-            length: { bsonType: "double" },
-            with_personalization: { bsonType: "bool" },
-            with_deadline: { bsonType: "bool" },
-            with_emoji: { bsonType: "bool" },
-            with_bonuses: { bsonType: "bool" },
-            with_discount: { bsonType: "bool" },
-            with_saleout: { bsonType: "bool" }
-          }
-        },
+        subject_length: { bsonType: "double" },
+        subject_with_personalization: { bsonType: "bool" },
+        subject_with_deadline: { bsonType: "bool" },
+        subject_with_emoji: { bsonType: "bool" },
+        subject_with_bonuses: { bsonType: "bool" },
+        subject_with_discount: { bsonType: "bool" },
+        subject_with_saleout: { bsonType: "bool" },
         is_test: { bsonType: "bool" },
         position: { bsonType: "int" }
       }
@@ -59,22 +53,16 @@ db.createCollection("events", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
-      required: ["event_time", "event_type", "product", "user_id"],
+      required: ["event_time", "event_type", "product_id", "user_id"],
       properties: {
-        _id: { bsonType: "objectId" },
+        event_id: { bsonType: "int" },
         event_time: { bsonType: "date" },
         event_type: { bsonType: "string" },
-        product: {
-          bsonType: "object",
-          required: ["id"],
-          properties: {
-            id: { bsonType: "long" },
-            price: { bsonType: "double" },
-            category_id: { bsonType: "long" },
-            category_code: { bsonType: "string" },
-            brand: { bsonType: "string" }
-          }
-        },
+        product_id: { bsonType: "long" },
+        category_id: { bsonType: "long" },
+        category_code: { bsonType: "string" },
+        brand: { bsonType: "string" },
+        price: { bsonType: "double" },
         user_id: { bsonType: "long" },
         user_session: { bsonType: "string" }
       }
@@ -86,31 +74,18 @@ db.createCollection("messages", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
-      required: ["_id", "campaign_id", "message_type", "channel", "client_id", "date", "sent_at", "timestamps"],
+      required: ["message_id", "campaign_id", "message_type", "channel", "client_id", "date", "sent_at", "user_device_id", "user_id"],
       properties: {
-        _id: { bsonType: "string" },
-        numeric_id: { bsonType: "long" },
+        id: { bsonType: "long" },
+        message_id: { bsonType: "string" },
         campaign_id: { bsonType: "long" },
         message_type: { bsonType: "string" },
         channel: { bsonType: "string" },
         client_id: { bsonType: "string" },
-        user: {
-          bsonType: "object",
-          required: ["user_id", "user_device_id"],
-          properties: {
-            user_id: { bsonType: "long" },
-            user_device_id: { bsonType: "long" }
-          }
-        },
-        delivery: {
-          bsonType: "object",
-          properties: {
-            email_provider: { bsonType: "string" },
-            platform: { bsonType: "string" },
-            stream: { bsonType: "string" },
-            category: { bsonType: "string" }
-          }
-        },
+        email_provider: { bsonType: "string" },
+        platform: { bsonType: "string" },
+        stream: { bsonType: "string" },
+        category: { bsonType: "string" },
         date: { bsonType: "date" },
         sent_at: { bsonType: "date" },
         is_opened: { bsonType: "bool" },
@@ -131,14 +106,10 @@ db.createCollection("messages", {
         blocked_at: { bsonType: "date" },
         is_purchased: { bsonType: "bool" },
         purchased_at: { bsonType: "date" },
-        timestamps: {
-          bsonType: "object",
-          required: ["created_at", "updated_at"],
-          properties: {
-            created_at: { bsonType: "date" },
-            updated_at: { bsonType: "date" }
-          }
-        }
+        created_at: { bsonType: "date" },
+        updated_at: { bsonType: "date" },
+        user_device_id: { bsonType: "long" },
+        user_id: { bsonType: "long" }
       }
     }
   }
@@ -148,15 +119,10 @@ db.createCollection("friends", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
-      required: ["users"],
+      required: ["friend1", "friend2"],
       properties: {
-        _id: { bsonType: "objectId" },
-        users: {
-          bsonType: "array",
-          minItems: 2,
-          maxItems: 2,
-          items: { bsonType: "long" }
-        }
+        friend1: { bsonType: "long" },
+        friend2: { bsonType: "long" }
       }
     }
   }

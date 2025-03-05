@@ -40,6 +40,12 @@ def clean_campaigns(df):
             else None
         )
 
+    # convert bool types
+    bool_cols = ["ab_test", "warmup_mode", "is_test"]
+    for col in bool_cols:
+        if col in df.columns:
+            df[col] = df[col].apply(lambda x: True if x == "t" else False)
+
     # Drop duplicates
     df = df.drop_duplicates(subset=["id"])
     return df
@@ -79,6 +85,21 @@ def clean_messages(df):
                 if pd.notna(x)
                 else None
             )
+
+    # convert bool types
+    bool_cols = [
+        "is_opened",
+        "is_clicked",
+        "is_unsubscribed",
+        "is_hard_bounced",
+        "is_soft_bounced",
+        "is_complained",
+        "is_blocked",
+        "is_purchased",
+    ]
+    for col in bool_cols:
+        if col in df.columns:
+            df[col] = df[col].apply(lambda x: True if x == "t" else False)
     return df
 
 

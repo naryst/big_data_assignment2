@@ -1,5 +1,3 @@
--- Database creation script for e-commerce data
-
 -- Drop all tables if they exist (in correct order to avoid constraint violations)
 DROP TABLE IF EXISTS messages;
 DROP TABLE IF EXISTS events;
@@ -53,8 +51,7 @@ CREATE TABLE events (
     brand VARCHAR(100),
     price DECIMAL(10, 2),
     user_id BIGINT NOT NULL,
-    user_session VARCHAR(100),
-    FOREIGN KEY (user_id) REFERENCES client_first_purchase(user_id)
+    user_session VARCHAR(100)
 );
 
 CREATE INDEX idx_events_user_id ON events(user_id);
@@ -92,14 +89,13 @@ CREATE TABLE messages (
     complained_at TIMESTAMP,
     is_blocked BOOLEAN,
     blocked_at TIMESTAMP,
-    is_purchasced BOOLEAN,
+    is_purchased BOOLEAN,
     purchased_at TIMESTAMP,
-    created_at TIMESTAMP NOT NULL,
-    updated_at TIMESTAMP NOT NULL,
+    created_at TIMESTAMP,
+    updated_at TIMESTAMP,
     user_device_id BIGINT NOT NULL,
     user_id BIGINT NOT NULL,
-    FOREIGN KEY (campaign_id) REFERENCES campaigns(id),
-    FOREIGN KEY (client_id) REFERENCES client_first_purchase(client_id)
+    FOREIGN KEY (campaign_id) REFERENCES campaigns(id)
 );
 
 -- Create indexes for messages table
@@ -112,12 +108,9 @@ CREATE INDEX idx_messages_is_purchased ON messages(is_purchased);
 CREATE TABLE friends (
     friend1 BIGINT NOT NULL,
     friend2 BIGINT NOT NULL,
-    PRIMARY KEY (friend1, friend2),
-    FOREIGN KEY (friend1) REFERENCES client_first_purchase(user_id),
-    FOREIGN KEY (friend2) REFERENCES client_first_purchase(user_id)
+    PRIMARY KEY (friend1, friend2)
 );
 
 -- Create indexes for friends table
 CREATE INDEX idx_friends_friend1 ON friends(friend1);
 CREATE INDEX idx_friends_friend2 ON friends(friend2);
-

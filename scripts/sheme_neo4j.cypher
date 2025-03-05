@@ -1,10 +1,13 @@
 MATCH (n) DETACH DELETE n;
 
+// Unique ID constraints
 CREATE CONSTRAINT client_id IF NOT EXISTS FOR (c:Client) REQUIRE c.client_id IS UNIQUE;
 CREATE CONSTRAINT user_id IF NOT EXISTS FOR (c:Client) REQUIRE c.user_id IS UNIQUE;
 CREATE CONSTRAINT campaign_id IF NOT EXISTS FOR (camp:Campaign) REQUIRE camp.id IS UNIQUE;
 CREATE CONSTRAINT message_id IF NOT EXISTS FOR (m:Message) REQUIRE m.message_id IS UNIQUE;
 CREATE CONSTRAINT product_id IF NOT EXISTS FOR (p:Product) REQUIRE p.product_id IS UNIQUE;
+
+// Search indexes
 CREATE INDEX event_type IF NOT EXISTS FOR (e:Event) ON (e.event_type);
 CREATE INDEX campaign_type IF NOT EXISTS FOR (c:Campaign) ON (c.campaign_type);
 
@@ -31,13 +34,13 @@ CREATE (c:Campaign {
     warmup_mode: toBoolean(row.warmup_mode),
     hour_limit: toFloat(row.hour_limit),
     subject_length: toFloat(row.subject_length),
-    subject_with_personalization: toBoolean(row.subject_with_personalization),
-    subject_with_deadline: toBoolean(row.subject_with_deadline),
-    subject_with_emoji: toBoolean(row.subject_with_emoji),
-    subject_with_bonuses: toBoolean(row.subject_with_bonuses),
-    subject_with_discount: toBoolean(row.subject_with_discount),
-    subject_with_saleout: toBoolean(row.subject_with_saleout),
-    is_test: toBoolean(row.is_test),
+    subject_with_personalization: toBoolean(CASE WHEN row.subject_with_personalization = 't' THEN true ELSE false END),
+    subject_with_deadline: toBoolean(CASE WHEN row.subject_with_deadline = 't' THEN true ELSE false END),
+    subject_with_emoji: toBoolean(CASE WHEN row.subject_with_emoji = 't' THEN true ELSE false END),
+    subject_with_bonuses: toBoolean(CASE WHEN row.subject_with_bonuses = 't' THEN true ELSE false END),
+    subject_with_discount: toBoolean(CASE WHEN row.subject_with_discount = 't' THEN true ELSE false END),
+    subject_with_saleout: toBoolean(CASE WHEN row.subject_with_saleout = 't' THEN true ELSE false END),
+    is_test: toBoolean(CASE WHEN row.is_test = 't' THEN true ELSE false END),
     position: toInteger(row.position)
 });
 
@@ -86,17 +89,17 @@ CREATE (m:Message {
     is_clicked: toBoolean(row.is_clicked),
     clicked_first_time_at: CASE WHEN row.clicked_first_time_at <> '' THEN datetime(row.clicked_first_time_at) ELSE null END,
     clicked_last_time_at: CASE WHEN row.clicked_last_time_at <> '' THEN datetime(row.clicked_last_time_at) ELSE null END,
-    is_unsubscribed: toBoolean(row.is_unsubscribed),
+    is_unsubscribed: toBoolean(CASE WHEN row.is_unsubscribed = 't' THEN true ELSE false END),
     unsubscribed_at: CASE WHEN row.unsubscribed_at <> '' THEN datetime(row.unsubscribed_at) ELSE null END,
-    is_hard_bounced: toBoolean(row.is_hard_bounced),
+    is_hard_bounced: toBoolean(CASE WHEN row.is_hard_bounced = 't' THEN true ELSE false END),
     hard_bounced_at: CASE WHEN row.hard_bounced_at <> '' THEN datetime(row.hard_bounced_at) ELSE null END,
-    is_soft_bounced: toBoolean(row.is_soft_bounced),
+    is_soft_bounced: toBoolean(CASE WHEN row.is_soft_bounced = 't' THEN true ELSE false END),
     soft_bounced_at: CASE WHEN row.soft_bounced_at <> '' THEN datetime(row.soft_bounced_at) ELSE null END,
-    is_complained: toBoolean(row.is_complained),
+    is_complained: toBoolean(CASE WHEN row.is_complained = 't' THEN true ELSE false END),
     complained_at: CASE WHEN row.complained_at <> '' THEN datetime(row.complained_at) ELSE null END,
-    is_blocked: toBoolean(row.is_blocked),
+    is_blocked: toBoolean(CASE WHEN row.is_blocked = 't' THEN true ELSE false END),
     blocked_at: CASE WHEN row.blocked_at <> '' THEN datetime(row.blocked_at) ELSE null END,
-    is_purchased: toBoolean(row.is_purchased),
+    is_purchased: toBoolean(CASE WHEN row.is_purchased = 't' THEN true ELSE false END),
     purchased_at: CASE WHEN row.purchased_at <> '' THEN datetime(row.purchased_at) ELSE null END,
     created_at: datetime(row.created_at),
     updated_at: datetime(row.updated_at),
