@@ -69,24 +69,7 @@ CREATE (e)-[:INVOLVES]->(p);
 
 // Load Message data and create relationships
 LOAD CSV WITH HEADERS FROM 'file:///messages.csv' AS row
-// First check if client exists with client_id
-OPTIONAL MATCH (existingClient:Client {client_id: row.client_id})
-WITH row, existingClient
-// If client doesn't exist, check if there's one with this user_id
-FOREACH (x IN CASE WHEN existingClient IS NULL THEN [1] ELSE [] END |
-    MERGE (client:Client {user_id: toInteger(row.user_id)})
-    ON CREATE SET 
-        client.client_id = row.client_id,
-        client.user_device_id = toInteger(row.user_device_id)
-)
-// Use the existing client or the one with matching user_id
-WITH row, 
-    CASE 
-        WHEN existingClient IS NOT NULL THEN existingClient 
-        ELSE null
-    END AS maybeClient
-OPTIONAL MATCH (userClient:Client {user_id: toInteger(row.user_id)})
-WITH row, CASE WHEN maybeClient IS NOT NULL THEN maybeClient ELSE userClient END AS client
+MATCH (client:Client {client_id: row.client_id})
 MATCH (campaign:Campaign {id: toInteger(row.campaign_id)})
 CREATE (m:Message {
     message_id: row.message_id,
