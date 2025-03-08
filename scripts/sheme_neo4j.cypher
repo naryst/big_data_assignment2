@@ -2,7 +2,6 @@ MATCH (n) DETACH DELETE n;
 
 // Unique ID constraints
 CREATE CONSTRAINT client_id IF NOT EXISTS FOR (c:Client) REQUIRE c.client_id IS UNIQUE;
-CREATE CONSTRAINT user_id IF NOT EXISTS FOR (c:Client) REQUIRE c.user_id IS UNIQUE;
 CREATE CONSTRAINT campaign_id IF NOT EXISTS FOR (camp:Campaign) REQUIRE camp.id IS UNIQUE;
 CREATE CONSTRAINT message_id IF NOT EXISTS FOR (m:Message) REQUIRE m.message_id IS UNIQUE;
 CREATE CONSTRAINT product_id IF NOT EXISTS FOR (p:Product) REQUIRE p.product_id IS UNIQUE;
@@ -70,7 +69,24 @@ CREATE (e)-[:INVOLVES]->(p);
 
 // Load Message data and create relationships
 LOAD CSV WITH HEADERS FROM 'file:///messages.csv' AS row
-MATCH (client:Client {client_id: row.client_id})
+// First check if client exists with client_id
+OPTIONAL MATCH (existingClient:Client {client_id: row.client_id})
+WITH row, existingClient
+// If client doesn't exist, check if there's one with this user_id
+FOREACH (x IN CASE WHEN existingClient IS NULL THEN [1] ELSE [] END |
+    MERGE (client:Client {user_id: toInteger(row.user_id)})
+    ON CREATE SET 
+        client.client_id = row.client_id,
+        client.user_device_id = toInteger(row.user_device_id)
+)
+// Use the existing client or the one with matching user_id
+WITH row, 
+    CASE 
+        WHEN existingClient IS NOT NULL THEN existingClient 
+        ELSE null
+    END AS maybeClient
+OPTIONAL MATCH (userClient:Client {user_id: toInteger(row.user_id)})
+WITH row, CASE WHEN maybeClient IS NOT NULL THEN maybeClient ELSE userClient END AS client
 MATCH (campaign:Campaign {id: toInteger(row.campaign_id)})
 CREATE (m:Message {
     message_id: row.message_id,
@@ -109,10 +125,10 @@ CREATE (m:Message {
 CREATE (client)-[:RECEIVED]->(m)
 CREATE (campaign)-[:INCLUDES]->(m);
 
-// Load Friends data
+// Load Friends data - creating Client nodes if they don't exist
 LOAD CSV WITH HEADERS FROM 'file:///friends.csv' AS row
-MATCH (c1:Client {user_id: toInteger(row.friend1)})
-MATCH (c2:Client {user_id: toInteger(row.friend2)})
+MERGE (c1:Client {user_id: toInteger(row.friend1)})
+MERGE (c2:Client {user_id: toInteger(row.friend2)})
 CREATE (c1)-[:FRIENDS_WITH]->(c2);
 
 // Create indexes for better query performance

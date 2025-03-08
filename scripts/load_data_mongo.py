@@ -25,7 +25,7 @@ print("Existing collections:", db.list_collection_names())
 
 PREFIX = "../data_clean"
 csv_files = {
-    "client_first_purchase_date": "client_first_purchase_date.csv",
+    "client_first_purchase": "client_first_purchase_date.csv",
     "campaigns": "campaigns.csv",
     "events": "events.csv",
     "messages": "messages.csv",
@@ -35,10 +35,10 @@ for collection, file in csv_files.items():
     csv_files[collection] = os.path.join(PREFIX, file)
 
 print("Loading client_first_purchase data...")
-df_client = pd.read_csv(csv_files["client_first_purchase_date"])
-df_client = convert_to_datetime(df_client, "client_first_purchase_date")
-db.client_first_purchase_date.drop()  # Drop collection if exists
-db.client_first_purchase_date.insert_many(df_client.to_dict("records"))
+df_client = pd.read_csv(csv_files["client_first_purchase"])
+df_client = convert_to_datetime(df_client, "first_purchase_date")
+db.client_first_purchase.drop()  # Drop collection if exists
+db.client_first_purchase.insert_many(df_client.to_dict("records"))
 
 print("Loading campaigns data...")
 df_campaigns = pd.read_csv(csv_files["campaigns"])
